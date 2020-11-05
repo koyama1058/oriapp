@@ -1,0 +1,97 @@
+<%= render 'shared/header'%>
+<body class="text-center">
+  <div class="pt-5">
+    <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
+    <h1 class="h3 m-3 font-weight-normal pt-4">新規投稿</h1>
+    <%= form_with model: @post, local: true do |f| %>
+      <div class="card p4" style="width: 100%;">
+        
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            画像
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="input-group mb-2 ml-3 image">
+            <%= f.file_field :image %>
+          </div>
+          <img id="img1" class="card-img-top" >
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            タイトル
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :title, autofocus: true, autocomplete: "title", class:"form-control", placeholder: "タイトル"  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            カテゴリー
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {})  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            詳細説明
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_area :description, autofocus: true, autocomplete: "description", class:"form-control", placeholder: "詳細を記入してください", :size=>"60x10"  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            日時
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :day_time, autofocus: true, autocomplete: "day_time", class:"form-control", placeholder: "未定の場合には未定と記入してください"  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            都道府県
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {})  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            場所
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :place, autofocus: true, autocomplete: "place", class:"form-control", placeholder: "詳しい場所を記入してください"  %>
+          </div>
+        </div>
+        
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            予算
+            <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :budget, autofocus: true, autocomplete: "budget", class:"form-control", placeholder: "予算を記入してください"  %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "投稿する", class: "mb-3 btn btn-primary btn-lg"%>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</body>
+<%= render 'shared/footer'%>
