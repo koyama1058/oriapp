@@ -58,5 +58,28 @@
 
   <hr class="featurette-divider">
 
+<%# 提案内容一覧 %>
+  <div class="p-4 offset-md-4">
+    <h1 class="text-success">Waiting for sharing</h1>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-4 mb-5">
+        <div class="card" style="display: none">
+          <%= image_tag post.image, class:"card-img-top" %>
+          <div class="card-body text-center">
+            <h4 class="card-title"><%=post.title %></h4>
+            <p class="card-text"><%=post.description %></p>
+            <%= link_to '詳細を表示する', post_path(post.id), class:'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div> 
+
+</div>
 
   <%= render 'shared/footer' %>
