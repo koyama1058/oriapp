@@ -1,0 +1,62 @@
+<%= render 'shared/header' %>
+
+<%# アイキャッチ画像 %>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=3000 data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "Collage_Fotor.jpg", class:"d-block w-100" %>
+      <div class="carousel-caption d-none d-md-block">
+        <%# <h3>さあ、世界を広げよう</h3> %>
+        <%=link_to 'ログイン', new_user_session_path, class:"btn btn-lg btn-primary mb-4" %>
+        <p>  </p>
+      </div>
+    </div>
+    <%# <div class="carousel-item"> %>
+      <%# <%= image_tag "Collage_Fotor.jpg", class:"d-block w-100" %> 
+      <%# <div class="carousel-caption d-none d-md-block"> %>
+        <%# <h3>さあ、世界を広げよう</h3> %>
+        <%# <p>ログイン</p> %>
+        <%# <%=link_to 'ログイン', new_user_session_path %> 
+      <%# </div> %>
+    <%# </div> %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="container">
+
+  <%# サイト説明 %>
+  <hr class="featurette-divider">
+    <div class="media d-flex align-items-center slide-right" id="left_move">
+      <%= image_tag "people-2598902_1920.jpg", :size =>'280x210', class:"mr-3", alt:"..."%>
+      <div class="media-body">
+        <h1 class="col-md-6 offset-md-4">share</h1>
+      </div>
+    </div>
+  <hr class="featurette-divider">
+
+    <svg width="5em" height="5em" viewBox="0 0 16 16" class="col-md-6 offset-md-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+
+  <hr class="featurette-divider">
+
+    <div class="media d-flex align-items-center" id="right_move">
+      <div class="media-body">
+        <h1 class="col-md-6 offset-md-4">interesting</h1>
+      </div>
+      <%= image_tag "kids-1093758_1920.jpg", :size =>'280x210', class:"mr-3", alt:"..."%>
+    </div>
+
+  <hr class="featurette-divider">
+
+
+  <%= render 'shared/footer' %>

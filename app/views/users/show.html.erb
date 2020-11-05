@@ -1,0 +1,36 @@
+<%= render 'shared/header'%>
+<body class="text-center">
+
+<div class="pt-5">
+<div class="container shadow p-3 bg-white rounded" style="width: 50%;">
+  <% if current_user.id == @user.id %>
+    <h1 class="h3 m-3 font-weight-normal pt-4">マイページ</h1>
+  <% else %>
+    <h1 class="h3 m-3 font-weight-normal pt-4"><%= @user.nickname %>さんの詳細</h1>
+  <% end %>
+
+<div class="card" style="width: 100%;">
+  <%= image_tag @user.image, class:"card-img-top mb-4" if @user.image.attached? %>
+  <%= image_tag "image.png", class:"card-img-top mb-4" unless @user.image.attached? %>
+  <ul class="list-group list-group-flush text-left">
+    <li class="list-group-item p-3">ニックネーム:<%= @user.nickname %></li>
+    <li class="list-group-item p-3">自己紹介:<%= @user.introduction %></li>
+    <li class="list-group-item p-3">誕生日:<%= @user.birthday %></li>
+    <li class="list-group-item p-3">趣味:<%= @user.hobby %></li>
+    <li class="list-group-item p-3">email:<%= @user.email %></li>
+    <li class="list-group-item p-3">性別:<%= @user.gender.name %></li>
+    <li class="list-group-item p-3">仕事:<%= @user.job.name %></li>
+    <li class="list-group-item p-3">居住地:<%= @user.prefectures.name %></li>
+  </ul>
+  <div class="card-body">
+    <% if current_user.id == @user.id %>
+      <%=link_to '編集する', edit_user_path(current_user.id), class:"btn btn-primary btn-lg"%>
+    <% end %>
+  </div>
+</div>
+
+  </div>
+  </div>
+</body>
+
+ <%= render 'shared/footer'%>

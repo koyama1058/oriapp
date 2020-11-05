@@ -1,0 +1,26 @@
+<header>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
+      <%= link_to 'HobbyApp', root_path, class:'my-0 mr-md-auto font-weight-normal btn btn-outline-secondary btn-lg' %>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <% if user_signed_in? %>
+        こんにちは <%=current_user.nickname %>さん
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'ml-2 p-2 text-primary btn btn-outline-primary' %>
+        <%= link_to '新規投稿', new_post_path, class:'ml-2 p-2 text-primary btn btn-outline-primary' %>
+          <a class="ml-2 btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+         </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to 'ユーザーページ', user_path(current_user.id), class:'dropdown-item' %>
+          <%= link_to 'チャット一覧', user_path(current_user.id), class:'dropdown-item' %>
+          <%= link_to '投稿したもの', user_path(current_user.id), class:'dropdown-item' %>
+        </div>
+      <% else %>
+        <%= link_to 'ユーザー登録', new_user_registration_path, class:'ml-2 p-2 text-primary btn btn-outline-primary' %>
+        <%= link_to 'ログイン', new_user_session_path, class:'ml-2 p-2 text-primary btn btn-outline-primary ' %>
+      <% end %>
+    </nav>
+  </div>  
+</header>
+
