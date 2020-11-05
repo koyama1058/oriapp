@@ -1,24 +1,98 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| colum          | type    | option      |
+| -------------- | ------- | ----------- |
+| email          | string  | null: false |
+| password       | string  | null: false |
+| nickname       | string  | null: false |
+| birthday       | date    |             |
+| gender_id      | integer |             |
+| introduction   | text    |             |
+| job            | string  |             |
+| hobby          | text    |             |
+| prefectures_id | integer |             |
 
-* Ruby version
 
-* System dependencies
+### Association
+- has_many :posts
+- has_one_attached :image
+- has_many :rooms, through: :room_users
+- has_many :room_users
+- has_many :messages
 
-* Configuration
+### その他
+gender_id :active_hash
+birthday :date_select
+gem :devise
+- gem: 'mini_magick' でimageを実装
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## posts テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| colum          | type       | option                         |
+| -------------- | ---------- | ------------------------------ |
+| title          | string     | null: false                    |
+| category_id    | integer    | null: false                    |
+| description    | text       | null: false                    |
+| day_time       | date       |                                |
+| prefectures_id | integer    |                                |
+| place          | text       |                                |
+| budget         | text       |                                |
+| user           | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
+- belongs_to :user
+- has_one :room
 
-* ...
+### その他
+prefectures_id :active_hash
+category_id :active_hash
+- gem: 'mini_magick' でimageを実装
+
+カテゴリーはタグで付けたい
+
+
+
+## rooms テーブル
+
+| colum | type       | option                         |
+| ----- | ---------- | ------------------------------ |
+| post  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :post
+- has_many :users, through: :room_users
+- has_many :room_users
+- has_many :messages
+
+
+## room_users テーブル
+
+| colum   | type       | option                         |
+| ------- | ---------- | ------------------------------ |
+| user_id | references | null: false, foreign_key: true |
+| room_id | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :room
+- belongs_to :user
+
+
+## messages テーブル
+
+| colum | type       | option                         |
+| ----- | ---------- | ------------------------------ |
+| text  | text       | null: false                    |
+| user  | references | null: false, foreign_key: true |
+| room  | references | null: false, foreign_key: true |
+
+
+### Association
+- belongs_to :room
+- belongs_to :user
+
+### その他
+- gem: 'mini_magick' でimageを実装
