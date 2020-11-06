@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @room = Room.find_by(post_id: @post.id)
   end
 
   def edit
@@ -46,4 +47,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget).merge(user_id: current_user.id)
   end
+
 end
