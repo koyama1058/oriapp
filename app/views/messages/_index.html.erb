@@ -1,0 +1,26 @@
+<div style="width: 100%;">
+
+    <div class=" d-flex align-items-center p-2" style="height: 70px;">
+      チャットのルームタイトル 
+    </div>
+
+  <div class="overflow-auto" style="height: calc(100% - 200px)">
+    <div class="message">
+      <div class="upper-message">
+        <div class="message-user">
+          <%# <%= message.user.name %>
+        </div>
+        <div class="message-date">
+          <%# <%= l message.created_at %>
+        </div>
+      </div>
+      <div class="lower-message">
+        <div class="message-content">
+          <%# <%= message.text %>
+        </div>
+        <%# <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+      </div>
+    </div>
+  </div>
+
+</div>
