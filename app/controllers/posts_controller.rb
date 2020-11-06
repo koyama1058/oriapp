@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      # @room = Room.create(post_id: @post.id)
+      @room = Room.create(post_id: @post.id)
       redirect_to root_path
     else
       render 'new'
