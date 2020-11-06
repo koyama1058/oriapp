@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :posts do
     resources :rooms, only: [:index]
   end
+  resources :messages
 end
