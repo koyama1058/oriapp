@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :posts
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :gender
