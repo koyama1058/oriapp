@@ -2,7 +2,9 @@ class Post < ApplicationRecord
   
   belongs_to :user
   has_one_attached :image
-  has_one :room, dependent: :destroy
+  has_many :messages
+  has_many :post_users
+  has_many :users, through: :post_users
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
