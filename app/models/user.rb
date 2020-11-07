@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :post_users
   has_many :posts, through: :post_users
   has_many :messages
+  has_many :favorites, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :gender
@@ -17,5 +18,9 @@ class User < ApplicationRecord
 
   with_options presence: true do
   validates :nickname
+  end
+
+  def already_favorited?(post)
+    self.favorites.exists?(post_id: post.id)
   end
 end

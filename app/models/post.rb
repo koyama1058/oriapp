@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :messages
   has_many :post_users
   has_many :users, through: :post_users
+  has_many :favorites, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
