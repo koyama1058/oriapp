@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :room do
+  factory :post_user do
     
   end
 end
