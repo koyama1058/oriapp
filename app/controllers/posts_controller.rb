@@ -43,7 +43,10 @@ class PostsController < ApplicationController
   end
 
   def chat
-
+    post_user = PostUser.new(post_id: params[:id],user_id: current_user.id)
+    if PostUser.where(post_id: params[:id],user_id: current_user.id) == []
+      post_user.save
+    end
   end
 
   private
