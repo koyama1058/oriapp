@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @posts = PostUser.where(user_id: current_user)
     # ユーザーがいいねした投稿を取得
     @favorites = Favorite.where(user_id: current_user)
+    # ユーザーに対するgood数を取得
+    @goods = GoodUser.where(user_id: params[:id])
+    # ユーザーに対するbad数を取得
+    @bads = BadUser.where(user_id: params[:id])
   end
 
   def edit

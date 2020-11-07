@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :favorites, dependent: :destroy
   has_many :good_users
+  has_many :bad_users
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :gender
