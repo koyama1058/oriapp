@@ -22,7 +22,10 @@
   <div style="width: 100%;">
 
     <div class=" d-flex align-items-center p-2" style="height: 70px;">
-      参加者一覧
+      参加者一覧:
+      <% @users.each do |user| %>
+        <%= link_to "#{user.user.nickname},", user_path(user.user.id), class:"ml-3" %> 
+      <% end %>
     </div>
     <hr class="featurette-divider">
 

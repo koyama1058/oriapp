@@ -51,6 +51,7 @@ class PostsController < ApplicationController
 
     @message = Message.new
     @messages = @post.messages.includes(:user)
+    @users = PostUser.where(post_id: @post)
   end
 
   private
