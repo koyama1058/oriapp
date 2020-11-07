@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # ユーザーが参加している投稿を取得
+    @posts = PostUser.where(user_id: current_user)
   end
 
   def edit
