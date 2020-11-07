@@ -1,0 +1,2 @@
+class GoodUsersController < ApplicationController
+end
