@@ -16,7 +16,6 @@
       <hr class="featurette-divider">
     </div>
   </div>
-  <%# <%= render "messages/index" %>
 
   <div style="width: 100%;">
 
@@ -37,7 +36,9 @@
           <div class="message-content">
             <%= message.text %>
           </div>
-          <%# <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+          <div class="message-content">
+          <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+          </div>
         <% end %>
       </div>
   </div>
@@ -51,7 +52,7 @@
         </div>
 
         <div class="col">
-          <%# <%= f.file_field :image %> %>
+          <%= f.file_field :image %>
         </div>
 
         <div class="col">
