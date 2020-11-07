@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      @room = Room.create(post_id: @post.id)
+      # @room = Room.create(post_id: @post.id)
       redirect_to root_path
     else
       render 'new'
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @room = Room.find_by(post_id: @post.id)
+    # @room = Room.find_by(post_id: @post.id)
   end
 
   def edit
@@ -40,6 +40,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path
+  end
+
+  def chat
+
   end
 
   private
