@@ -47,6 +47,7 @@ class PostsController < ApplicationController
     if PostUser.where(post_id: params[:id],user_id: current_user.id) == []
       post_user.save
     end
+    @post = Post.find(params[:id])
   end
 
   private

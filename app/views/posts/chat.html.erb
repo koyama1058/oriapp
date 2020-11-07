@@ -4,15 +4,14 @@
   <div style="width: 300px;">
     <div class="text-center">
       <div class=" d-flex align-items-center p-2" style="height: 70px;">
-        <%# <%= "#{current_user.nickname}さんのチャット"%> %>
-        チャット一覧
+        <%= "#{current_user.nickname}さんのチャット"%>
       </div>
       <hr class="featurette-divider">
     </div>
     <div class="rooms">
       <div class="p-3">
-        <%# <%= link_to "#{@room.post.title}", root_path %> %>
-        チャット一覧
+        <%= link_to "#{@post.title}", root_path %>
+        
       </div>
       <hr class="featurette-divider">
     </div>
