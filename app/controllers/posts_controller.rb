@@ -48,6 +48,9 @@ class PostsController < ApplicationController
       post_user.save
     end
     @post = Post.find(params[:id])
+
+    @message = Message.new
+    @messages = @post.messages.includes(:user)
   end
 
   private
