@@ -26,22 +26,20 @@
     <hr class="featurette-divider">
 
   <div class="overflow-auto" style="height: calc(100% - 200px)">
-    <div class="message">
       <div class="upper-message">
-        <div class="message-user">
-          <%# <%= message.user.name %>
-        </div>
-        <div class="message-date">
-          <%# <%= l message.created_at %>
-        </div>
+        <% @messages.each do |message| %>
+          <div class="message-user">
+            <%= message.user.nickname %>
+          </div>
+          <div class="message-date">
+            <%= message.created_at %>
+          </div>
+          <div class="message-content">
+            <%= message.text %>
+          </div>
+          <%# <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+        <% end %>
       </div>
-      <div class="lower-message">
-        <div class="message-content">
-          <%# <%= message.text %>
-        </div>
-        <%# <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
-      </div>
-    </div>
   </div>
   
   <hr class="featurette-divider">
