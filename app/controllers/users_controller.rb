@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # ユーザーが参加している投稿を取得
     @posts = PostUser.where(user_id: current_user)
+    # ユーザーがいいねした投稿を取得
+    @favorites = Favorite.where(user_id: current_user)
   end
 
   def edit
