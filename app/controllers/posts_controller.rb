@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :set_search, only: [:index]
+
   def index
     @posts = Post.all
   end
@@ -54,10 +56,22 @@ class PostsController < ApplicationController
     @users = PostUser.where(post_id: @post)
   end
 
+  def set_search
+    @search = Post.ransack(params[:q])
+  end
+
+  def search
+    @results = Post.where(prefectures_id: params[:q][:prefectures_id])
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget).merge(user_id: current_user.id)
   end
+
+  # def search_post
+  #   @p = Post.where(prefectures_id: params[:q][:prefectures_id])
+  # end 
 
 end
