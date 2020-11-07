@@ -46,7 +46,7 @@
   
   <hr class="featurette-divider">
   <div class="align-items-center d-flex justify-content-end mb-4">
-    <%= form_with post_messages_path(@post.id), html: {class: "form"}, local: true do |f| %>
+    <%= form_with model: [@post, @message], html: {class: "form"}, local: true do |f| %>
       <div class="d-flex justify-content-end">
         <div class="col"  style="width: 100%">
           <%= f.text_area :text, calss:"form-control", size: "70×10" %>

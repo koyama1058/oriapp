@@ -10,10 +10,10 @@ class MessagesController < ApplicationController
     @post = Post.find(params[:post_id])
     @message = @post.messages.new(message_params)
     if @message.save
-      render template: "posts/chat"
+      redirect_to chat_post_path(@post.id)
     else
       @messages = @post.messages.includes(:user)
-      render template: "posts/chat"
+      redirect_to chat_post_path(@post.id)
     end
   end
 
