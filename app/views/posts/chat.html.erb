@@ -1,46 +1,56 @@
 <%= render 'shared/header'%>
 
 <div class="d-flex">
-  <div style="width: 300px;">
-    <div class="text-center">
-      <div class=" d-flex align-items-center p-2" style="height: 70px;">
-        <%= "#{current_user.nickname}さんのチャット"%>
+  <div class="border">
+    <div style="width: 230px;">
+      <div class="text-center">
+        <div class=" d-flex align-items-center p-2" style="height: 70px;">
+          <%= "#{current_user.nickname}さんのチャット"%>
+        </div>
+        <hr class="featurette-divider">
       </div>
-      <hr class="featurette-divider">
-    </div>
-    <div class="rooms">
-      <div class="p-3">
-        <%= link_to "#{@post.title}", root_path %>
-        
+      <div class="rooms">
+        <div class="p-3">
+          <%= @post.title %>
+          
+        </div>
+        <hr class="featurette-divider">
       </div>
-      <hr class="featurette-divider">
     </div>
   </div>
 
   <div style="width: 100%;">
 
     <div class=" d-flex align-items-center p-2" style="height: 70px;">
-      ユーザー一覧
+      参加者一覧
     </div>
     <hr class="featurette-divider">
 
-  <div class="overflow-auto" style="height: calc(100% - 200px)">
-      <div class="upper-message">
-        <% @messages.each do |message| %>
-          <div class="message-user">
-            <%= message.user.nickname %>
+  <div class="overflow-scroll" style="height: calc(100% - 200px)">
+      <% @messages.each do |message| %>
+        <% if message.user == current_user %>
+          <div class="border mb-3 ml-3 mr-3 p-2 text-right">
+            <div class="mb-2">
+              <%= message.created_at %>
+            </div>
+            <div class="">
+              <%= message.text %>
+              <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+            </div>
           </div>
-          <div class="message-date">
-            <%= message.created_at %>
-          </div>
-          <div class="message-content">
-            <%= message.text %>
-          </div>
-          <div class="message-content">
-          <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+        <% else %>
+          <div class="border mb-3 ml-3 mr-3 p-2">
+            <div class="mb-2">
+              <%= link_to "ユーザー：#{message.user.nickname}さん", user_path(message.user.id)%>
+              <%= message.created_at %>
+            </div>
+            <div class="">
+              <%= message.text %>
+              <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+            </div>
           </div>
         <% end %>
-      </div>
+      <% end %>
   </div>
   
   <hr class="featurette-divider">
