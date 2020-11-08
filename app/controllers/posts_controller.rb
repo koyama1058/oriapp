@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_search, only: [:index]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: :DESC)
   end
 
   def new
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
   def search
     @search = Post.ransack(params[:q])
-    @results = Post.where(prefectures_id: params[:q][:prefectures_id])
+    @results = Post.where(prefectures_id: params[:q][:prefectures_id]).order(id: :DESC)
   end
 
   private
