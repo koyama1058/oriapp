@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :users do
     resource :good_users, only: [:create, :destroy]
     resource :bad_users, only: [:create, :destroy]
   end
+
   root to: 'posts#index'
+  get 'posts/search'
+
   resources :posts do 
       member do
         get :chat
@@ -12,4 +16,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
     resource :favorites, only: [:create, :destroy]
   end
+
 end

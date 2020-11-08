@@ -1,4 +1,6 @@
-<%= render 'shared/header' %>
+<%= render 'shared/header'%>
+
+検索結果
 
 <%# アイキャッチ画像 %>
 <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=3000 data-ride="carousel">
@@ -72,17 +74,16 @@
     <%= f.submit '検索'%>
   <% end %>
 
-<%# 投稿の一覧表示 %>
 <div class="container">
   <div class="row">
-    <% @posts.each do |post| %>
+    <% @results.each do |result| %>
       <div class="col-md-4 mb-5">
         <div class="card" style="display: none">
-          <%= image_tag post.image, class:"card-img-top" %>
+          <%= image_tag result.image, class:"card-img-top" %>
           <div class="card-body text-center">
-            <h4 class="card-title"><%=post.title %></h4>
-            <p class="card-text"><%=post.description %></p>
-            <%= link_to '詳細を表示する', post_path(post.id), class:'btn btn-primary' %>
+            <h4 class="card-title"><%=result.title %></h4>
+            <p class="card-text"><%=result.description %></p>
+            <%= link_to '詳細を表示する', post_path(result.id), class:'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -92,4 +93,4 @@
 
 </div>
 
-  <%= render 'shared/footer' %>
+<%= render 'shared/footer'%>
