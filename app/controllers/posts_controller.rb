@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_search, only: [:index]
 
   def index
-    @posts = Post.all.order(id: :DESC)
+    @posts = Post.all.order(id: :DESC).page(params[:page]).per(6)
   end
 
   def new
