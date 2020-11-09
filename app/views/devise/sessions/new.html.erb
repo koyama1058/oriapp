@@ -6,6 +6,7 @@
       <div class="row justify-content-around">
       <div class="shadow p-3 bg-white col-8 ">
         <h1 class="h3 m-3 font-weight-normal pt-4">ログイン情報入力</h1>
+          <%=link_to  "新規登録へ", new_user_registration_path%>
 
         <%= form_with model: @user, url: user_session_path, class: 'registration-main contain p-5', local: true do |f| %>
 
