@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-11-08T05:46:44.093Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="NZA95TlTZ1VU69xtfPPd" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-09T00:50:07.639Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="3JNQJqqYCE3jkdxXRfNB" version="13.6.5">
     <diagram id="iPc9gwwcCI1ic71yh8g8" name="ページ1">
-        <mxGraphModel dx="549" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1057" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -99,9 +99,6 @@
                 <mxCell id="127" value="docker" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="330" y="744" width="160" height="56" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="AWS" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="800" width="160" height="56" as="geometry"/>
-                </mxCell>
                 <mxCell id="128" value="googlemap" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="170" y="744" width="160" height="56" as="geometry"/>
                 </mxCell>
@@ -172,7 +169,10 @@
                     <mxGeometry x="310" y="950" width="160" height="56" as="geometry"/>
                 </mxCell>
                 <mxCell id="129" value="ページネーション" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="70" y="596" width="160" height="52" as="geometry"/>
+                    <mxGeometry x="500" y="950" width="160" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="AWS" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="744" width="160" height="56" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
