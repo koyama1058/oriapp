@@ -1,27 +1,31 @@
 <%= render 'shared/header'%>
 <body class="text-center">
 
-  <div class="pt-5">
-    <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
-      <h1 class="h3 m-3 font-weight-normal pt-4">ログイン情報入力</h1>
+  <div class="pt-5 ">
+    <div class="container">
+      <div class="row justify-content-around">
+      <div class="shadow p-3 bg-white col-8 ">
+        <h1 class="h3 m-3 font-weight-normal pt-4">ログイン情報入力</h1>
 
-      <%= form_with model: @user, url: user_session_path, class: 'registration-main contain p-5', local: true do |f| %>
+        <%= form_with model: @user, url: user_session_path, class: 'registration-main contain p-5', local: true do |f| %>
 
-        <div class="input-group mb-3">
-          <%= f.label :email, class:"input-group mb-3" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "email"  %>
-        </div>
+          <div class="input-group mb-3">
+            <%= f.label :email, class:"input-group mb-3" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "email"  %>
+          </div>
 
-        <div class="input-group mb-3">
-          <%= f.label :password, class:"input-group mb-3" %><br />
-          <%= f.text_field :password, autofocus: true, autocomplete: "current-password", class:"form-control", placeholder: "password"  %>
-        </div>
+          <div class="input-group mb-3">
+            <%= f.label :password, class:"input-group mb-3" %><br />
+            <%= f.text_field :password, autofocus: true, autocomplete: "current-password", class:"form-control", placeholder: "password"  %>
+          </div>
 
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary btn-lg"%>
-        </div>
+          <div class="actions">
+            <%= f.submit "ログイン", class: "btn btn-primary btn-lg mt-4"%>
+          </div>
 
-      <% end %>
+        <% end %>
+      </div>
+      </div>
     </div>
   </div>
 </body>
