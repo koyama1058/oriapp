@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # ユーザーが参加している投稿を取得
-    @posts = PostUser.where(user_id: current_user)
+    @posts = PostUser.where(user_id: current_user).order(id: :DESC)
     # ユーザーがいいねした投稿を取得
-    @favorites = Favorite.where(user_id: current_user)
+    @favorites = Favorite.where(user_id: current_user).order(id: :DESC)
     # ユーザーに対するgood数を取得
     @goods = GoodUser.where(user_id: params[:id])
     # ユーザーに対するbad数を取得
