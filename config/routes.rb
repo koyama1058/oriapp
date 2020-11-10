@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         get :chat
         get :chat_destroy
       end
-    resources :messages, only: [:index, :create]
+    resources :messages, only: [:index, :create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
 
