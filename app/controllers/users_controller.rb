@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @goods = GoodUser.where(user_id: params[:id])
     # ユーザーに対するbad数を取得
     @bads = BadUser.where(user_id: params[:id])
+    # ユーザーが投稿したもの一覧
+    @myposts = Post.where(user_id: current_user).order(id: :DESC)
   end
 
   def edit

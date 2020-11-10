@@ -134,6 +134,28 @@
       </div> 
     <%end%>
 
+    <%# 投稿一覧 %>
+    <% if current_user.id == @user.id %>
+      <div class="p-4 text-center m-4">
+        <h1 class="text-success">投稿したもの</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <% @myposts.each do |post| %>
+            <div class="col-md-4 mb-5">
+              <div class="card" style="display: none">
+                <%= image_tag post.image, class:"card-img-top" %>
+                <div class="card-body text-center">
+                  <h4 class="card-title"><%=post.title %></h4>
+                  <p class="card-text"><%=post.description %></p>
+                  <%= link_to '詳細へ', post_path(post.id), class:'btn btn-primary' %>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div> 
+    <%end%>
   </body>
 
  <%= render 'shared/footer'%>
