@@ -17,6 +17,13 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    message = Message.find(params[:id])
+    message.destroy
+    redirect_to chat_post_path(@post.id)
+  end
+
   private
   def message_params
     params.require(:message).permit(:text, :image).merge(user_id: current_user.id)
