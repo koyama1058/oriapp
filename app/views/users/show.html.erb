@@ -33,7 +33,9 @@
           <li class="list-group-item p-3">自己紹介:<%= @user.introduction %></li>
           <li class="list-group-item p-3">誕生日:<%= @user.birthday %></li>
           <li class="list-group-item p-3">趣味:<%= @user.hobby %></li>
-          <li class="list-group-item p-3">email:<%= @user.email %></li>
+          <% if current_user.id == @user.id %>
+            <li class="list-group-item p-3">email:<%= @user.email %></li>
+          <% end %>
           <li class="list-group-item p-3">性別:<%= @user.gender.name %></li>
           <li class="list-group-item p-3">仕事:<%= @user.job.name %></li>
           <li class="list-group-item p-3">居住地:<%= @user.prefectures.name %></li>
