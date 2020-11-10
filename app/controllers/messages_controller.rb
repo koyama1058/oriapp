@@ -18,7 +18,10 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    
+    @post = Post.find(params[:post_id])
+    message = Message.find(params[:id])
+    message.destroy
+    redirect_to chat_post_path(@post.id)
   end
 
   private
