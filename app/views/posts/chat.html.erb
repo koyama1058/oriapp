@@ -24,6 +24,7 @@
       <% @users.each do |user| %>
         <%= link_to "#{user.user.nickname},", user_path(user.user.id), class:"ml-3" %> 
       <% end %>
+      <%= link_to '参加をやめる', chat_destroy_post_path, class:'m-3 p-2 btn btn-primary'%>
     </div>
     <hr class="featurette-divider">
 
