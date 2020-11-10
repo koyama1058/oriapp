@@ -13,7 +13,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      # @room = Room.create(post_id: @post.id)
       redirect_to root_path
     else
       render 'new'
@@ -53,6 +52,14 @@ class PostsController < ApplicationController
     @message = Message.new
     @messages = @post.messages.includes(:user)
     @users = PostUser.where(post_id: @post)
+  end
+
+  def chat_destroy
+    post_user = PostUser.find_by(post_id: params[:id],user_id: current_user.id)
+      if post_user.present?
+        post_user.destroy
+      end
+    redirect_to root_path
   end
 
   def set_search

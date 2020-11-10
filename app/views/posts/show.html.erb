@@ -55,6 +55,7 @@
         <%= link_to '参加する', chat_post_path(@post.id), class:'mt-3 p-2 btn btn-primary btn-lg' %>
       <% else %>
         <%= link_to 'チャットへ', chat_post_path(@post.id), class:'mt-3 p-2 btn btn-primary btn-lg' %>
+        <%= link_to '参加をやめる', chat_destroy_post_path, class:'mt-3 p-2 btn btn-primary btn-lg'%>
       <% end %>
     </div>
   </div>
