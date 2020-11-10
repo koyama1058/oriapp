@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
   def search
     @search = Post.ransack(params[:q])
-    @results = Post.where(prefectures_id: params[:q][:prefectures_id]).order(id: :DESC).page(params[:page]).per(6)
+    @posts = Post.where(prefectures_id: params[:q][:prefectures_id]).order(id: :DESC).page(params[:page]).per(6)
   end
 
   private

@@ -74,25 +74,7 @@
     <%= f.submit '検索'%>
   <% end %>
 
-<div class="container">
-  <div class="row">
-    <% @results.each do |result| %>
-      <div class="col-md-4 mb-5">
-        <div class="card" style="display: none">
-          <%= image_tag result.image, class:"card-img-top" %>
-          <div class="card-body text-center">
-            <h4 class="card-title"><%=result.title %></h4>
-            <p class="card-text"><%=result.description %></p>
-            <%= link_to '詳細を表示する', post_path(result.id), class:'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
-    <%end%>
-  </div>
-</div> 
-<div class="d-flex justify-content-center">
-  <%= paginate @results %>
-</div>
-</div>
+<%# 検索投稿一覧 %>
+<%= render 'shared/post_index' %>
 
 <%= render 'shared/footer'%>
