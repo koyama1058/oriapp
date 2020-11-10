@@ -12,7 +12,6 @@
       <div class="rooms">
         <div class="p-3">
           <%= @post.title %>
-          
         </div>
         <hr class="featurette-divider">
       </div>
@@ -20,7 +19,6 @@
   </div>
 
   <div style="width: 100%;">
-
     <div class=" d-flex align-items-center p-2" style="height: 70px;">
       参加者一覧:
       <% @users.each do |user| %>
@@ -29,7 +27,7 @@
     </div>
     <hr class="featurette-divider">
 
-  <div class="overflow-scroll" style="height: calc(100% - 200px)">
+    <div class="overflow-scroll" style="height: 100%">
       <% @messages.each do |message| %>
         <% if message.user == current_user %>
           <div class="border mb-3 ml-3 mr-3 p-2 text-right">
@@ -54,26 +52,28 @@
           </div>
         <% end %>
       <% end %>
-  </div>
-  
-  <hr class="featurette-divider">
-  <div class="align-items-center d-flex justify-content-end mb-4">
-    <%= form_with model: [@post, @message], html: {class: "form"}, local: true do |f| %>
-      <div class="d-flex justify-content-end">
-        <div class="col"  style="width: 100%">
-          <%= f.text_area :text, calss:"form-control", size: "70×10" %>
-        </div>
+    </div>
+    
+    
+    <div class="align-items-center d-flex justify-content-end p-3 fixed-bottom bg-white">
+    <hr class="featurette-divider">
+      <h5 class="mr-5"><%=link_to "トップへ戻る", root_path%></h5>
+      <%= form_with model: [@post, @message], html: {class: "form"}, local: true do |f| %>
+        <div class="d-flex justify-content-end ml-4">
+          <div class="col align-self-center"  style="width: 100%">
+            <%= f.text_area :text, calss:"form-control", size: "70×10" %>
+          </div>
 
-        <div class="col">
-          <%= f.file_field :image %>
-        </div>
+          <div class="col align-self-center">
+            <%= f.file_field :image %>
+          </div>
 
-        <div class="col">
-          <%= f.submit "投稿", class: "mb-3 btn btn-primary btn-sm mr-5" %>
+          <div class="col align-self-center">
+            <%= f.submit "投稿", class: "mb-3 btn btn-primary btn-sm mr-5" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
 
