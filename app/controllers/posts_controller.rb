@@ -22,7 +22,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @room = Room.find_by(post_id: @post.id)
   end
 
   def edit
