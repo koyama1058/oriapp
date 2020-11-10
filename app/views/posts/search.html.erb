@@ -1,7 +1,5 @@
 <%= render 'shared/header'%>
 
-検索結果
-
 <%# アイキャッチ画像 %>
 <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=3000 data-ride="carousel">
   <div class="carousel-inner">
@@ -32,47 +30,22 @@
   </a>
 </div>
 
-
-<div class="container">
-
-  <%# サイト説明 %>
-  <hr class="featurette-divider">
-    <div class="media d-flex align-items-center slide-right" id="left_move">
-      <%= image_tag "people-2598902_1920.jpg", :size =>'280x210', class:"mr-3", alt:"..."%>
-      <div class="media-body">
-        <h1 class="col-md-6 offset-md-4">share</h1>
-      </div>
-    </div>
-  <hr class="featurette-divider">
-
-    <svg width="5em" height="5em" viewBox="0 0 16 16" class="col-md-6 offset-md-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-    </svg>
-
-  <hr class="featurette-divider">
-
-    <div class="media d-flex align-items-center" id="right_move">
-      <div class="media-body">
-        <h1 class="col-md-6 offset-md-4">interesting</h1>
-      </div>
-      <%= image_tag "kids-1093758_1920.jpg", :size =>'280x210', class:"mr-3", alt:"..."%>
-    </div>
-
-  <hr class="featurette-divider">
-
 <%# 提案内容一覧 %>
-  <div class="p-4 offset-md-4">
+  <div class="p-4 text-center">
     <h1 class="text-success ">Waiting for sharing</h1>
+    <h3 class="pt-5">検索結果一覧</h3>
   </div>
 
 <%# 投稿検索フォーム %>
-  <h1 class="text-success ">投稿検索</h1>
-  <%= search_form_for @search, url: posts_search_path do |f| %>
-    <%= f.label :prefectures_id_eq, '都道府県' %>
-    <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}) %>
-    <br>
-    <%= f.submit '検索'%>
-  <% end %>
+  <div class="m-3 text-center">
+    <h3 class="mb-3">投稿検索</h3>
+    <%= search_form_for @search, url: posts_search_path do |f| %>
+      <%= f.label :prefectures_id_eq, '都道府県', class:"mb-3" %>
+      <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}) %>
+      <br>
+      <%= f.submit '検索'%>
+    <% end %>
+  </div>
 
 <%# 検索投稿一覧 %>
 <%= render 'shared/post_index' %>
