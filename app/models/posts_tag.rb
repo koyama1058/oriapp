@@ -1,7 +1,7 @@
 class PostsTag
 
   include ActiveModel::Model
-  attr_accessor :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :user, :name
+  attr_accessor :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :user_id, :name
 
   with_options presence: true do
     validates :image
@@ -16,9 +16,9 @@ class PostsTag
   end
 
   def save
-    post = Post.create(image: image, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: current_user.id)
+    post = Post.create(image: image, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
     tag = Tag.where(name: name).first_or_initialize
-    Tag.save
+    tag.save
 
     PostTag.create(post_id: post.id, tag_id: tag.id)
   
