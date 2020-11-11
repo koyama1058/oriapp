@@ -7,12 +7,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = PostTag.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    @post = PostTag.new(post_params)
+    if @post.valid?
+      @post.save
       redirect_to root_path
     else
       render 'new'
@@ -74,7 +75,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget).merge(user_id: current_user.id)
+    params.require(:posts_tag).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget).merge(user_id: current_user.id)
   end
 
   # def search_post
