@@ -17,10 +17,11 @@ class PostsTag
 
   def save
     post = Post.create(image: image, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
-    tag = Tag.where(name: name).first_or_initialize
-    tag.save
-
-    PostTag.create(post_id: post.id, tag_id: tag.id)
-  
+    tags = name.split(" ")
+    tags.each do |tag|
+      tag = Tag.where(name: tag).first_or_initialize
+      tag.save
+      PostTag.create(post_id: post.id, tag_id: tag.id)
+    end
   end
 end

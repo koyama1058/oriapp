@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # 投稿とタグを2つDBに保存するためのformオブジェクト
     @post = PostsTag.new(post_params)
     if @post.valid?
       @post.save
