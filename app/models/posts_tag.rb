@@ -17,7 +17,7 @@ class PostsTag
 
   def save
     post = Post.create(image: image, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
-    tags = name.split(" ")
+    tags = name.split(/[　| ]/)
     tags.each do |tag|
       tag = Tag.where(name: tag).first_or_initialize
       tag.save
