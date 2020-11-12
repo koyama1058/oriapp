@@ -20,6 +20,11 @@
 
           <ul class="list-group list-group-flush text-left">
             <li class="list-group-item p-3">投稿者：<%=link_to "#{@post.user.nickname}",  user_path(@post.user.id) %></li>
+            <li class="list-group-item p-3">タグ：
+              <% @post.tags.each do |post| %>
+                <%= post.name %>　　
+              <% end %>
+            </li>
             <li class="list-group-item p-3">タイトル：<%= @post.title %></li>
             <li class="list-group-item p-3">カテゴリー：<%= @post.category.name %></li>
             <li class="list-group-item p-3">詳細：<%= @post.description %></li>
