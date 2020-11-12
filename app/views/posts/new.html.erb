@@ -37,9 +37,13 @@
           </div>
         </div>
         <%# タグ %>
-        <div class="tag-field", id='tag-field'>
-          <%= f.label :name, "タグ" %>
-          <%= f.text_field :name, class:"input-tag" %>
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            タグ
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :name, class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
+          </div>
         </div>
 
         <div class="input-group mb-3">

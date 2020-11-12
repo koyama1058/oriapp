@@ -12,7 +12,6 @@ class PostsTag
     validates :prefectures_id
     validates :place
     validates :budget
-    validates :name
   end
 
   def save
