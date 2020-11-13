@@ -4,7 +4,7 @@
   <div class="pt-5">
     <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
     <h1 class="h3 m-3 font-weight-normal pt-4">投稿を編集する</h1>
-      <%= form_with model: @post, class: 'registration-main contain p-5', local: true do |f| %>
+      <%= form_with model: @post, url: post_path, class: 'registration-main contain p-5', local: true do |f| %>
         <div class="card p4" style="width: 100%;">
           <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3 d-flex align-items-center">
@@ -36,6 +36,21 @@
             <%= f.collection_select(:category_id, Category.all, :id, :name, {})  %>
           </div>
         </div>
+
+
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            タグ
+          </div>
+          <div class="col align-self-center mb-2">
+            <% @post.tags.each do |post| %>
+              <%= f.text_field :name, value:"#{post.name}", class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
+            <% end %>
+          </div>
+        </div>
+
+
 
         <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
