@@ -35,6 +35,11 @@
           </ul>
         </div>
       <% end %>
+      
+      <% unless PostUser.where(post_id: @post.id,user_id: current_user.id) == [] %>
+        <%= fa_icon("twitter") %>
+        <%= link_to "ツイートで投稿を共有する",  "https://twitter.com/intent/tweet?text=#{@post.title}%20!!%0aみんなも参加是非参加して下さい！！%0ahttps://hobbyapp0828.herokuapp.com/posts/#{@post.id}", target: '_blank' %>
+      <% end %>
 
       <%# いいね機能 %>
       <div class="m-4">
