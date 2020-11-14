@@ -28,9 +28,9 @@ class PostsTag
     post = Post.find(id)
     # 画像がある場合にはimageを上書き、ない場合にはupdateには画像を含めない（画像が空にならないように）
     if image
-      post.update(id: id, image: image, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
+      post.update(id: id, image: image, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
     else
-      post.update(id: id, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
+      post.update(id: id, title: title, category_id: category_id, description: description, day_time: day_time, prefectures_id: prefectures_id, place: place, budget: budget, user_id: user_id)
     end
     tags = name.split(/[ |　]/)
     tags.each do |tag|
