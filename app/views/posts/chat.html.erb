@@ -25,6 +25,7 @@
         <%= link_to "#{user.user.nickname},", user_path(user.user.id), class:"ml-3" %> 
       <% end %>
       <%= link_to '参加をやめる', chat_destroy_post_path, class:'m-3 p-2 btn btn-primary'%>
+      <%= fa_icon("twitter") %>
       <%= link_to "ツイートで投稿を共有する",  "https://twitter.com/intent/tweet?text=#{@post.title}%20!!%0aみんなも参加是非参加して下さい！！%0ahttps://hobbyapp0828.herokuapp.com/posts/#{@post.id}", target: '_blank' %>
     </div>
     <hr class="featurette-divider">
