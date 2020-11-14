@@ -31,8 +31,7 @@ class PostsController < ApplicationController
 
   def update
     @post = PostsTag.new(update_params)
-    if @post.valid? 
-      @post.update
+    if @post.update
       redirect_to root_path
     else
       render 'edit'
