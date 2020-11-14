@@ -7,12 +7,14 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = PostsTag.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    # 投稿とタグを2つDBに保存するためのformオブジェクト
+    @post = PostsTag.new(post_params)
+    if @post.valid?
+      @post.save
       redirect_to root_path
     else
       render 'new'
@@ -28,8 +30,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
+    @post = PostsTag.new(update_params)
+    if @post.update
       redirect_to root_path
     else
       render 'edit'
@@ -74,7 +76,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget).merge(user_id: current_user.id)
+    params.require(:posts_tag).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id, id: params[:id])
   end
 
   # def search_post

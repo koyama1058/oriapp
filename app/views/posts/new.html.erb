@@ -3,7 +3,7 @@
   <div class="pt-5">
     <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
     <h1 class="h3 m-3 font-weight-normal pt-4">新規投稿</h1>
-    <%= form_with model: @post, local: true do |f| %>
+    <%= form_with model: @post, url: posts_path, local: true do |f| %>
       <div class="card p4" style="width: 100%;">
         
         <div class="input-group mb-3">
@@ -34,6 +34,15 @@
           </div>
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
             <%= f.collection_select(:category_id, Category.all, :id, :name, {})  %>
+          </div>
+        </div>
+        <%# タグ %>
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            タグ
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :name, class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
           </div>
         </div>
 
