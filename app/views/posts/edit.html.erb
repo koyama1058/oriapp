@@ -44,9 +44,11 @@
             タグ
           </div>
           <div class="col align-self-center mb-2">
-            <% @post.tags.each do |post| %>
-              <%= f.text_field :name, value:"#{post.name}", class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
-            <% end %>
+            <% tags = [] %>
+              <% @post.tags.each do |tag| %>
+                <% tags << tag.name %>
+              <% end %>
+            <%= f.text_field :name, value:"#{tags.join(" ")}", class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
           </div>
         </div>
 
