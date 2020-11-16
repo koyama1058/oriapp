@@ -1,7 +1,8 @@
 class CreateGoodUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :good_users do |t|
-      t.references :user,   null: false, foreign_key: true
+      t.integer :good_user_id
+      t.integer :judge_user_id
       t.timestamps
     end
   end

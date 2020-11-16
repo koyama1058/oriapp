@@ -28,6 +28,15 @@
       <%= fa_icon("twitter") %>
       <%= link_to "ツイートで投稿を共有する",  "https://twitter.com/intent/tweet?text=#{@post.title}%20!!%0aみんなも参加是非参加して下さい！！%0ahttps://hobbyapp0828.herokuapp.com/posts/#{@post.id}", target: '_blank' %>
     </div>
+
+      <% unless @bad_user_names == [] %>
+        <div class="alert alert-warning" role="alert">
+          注意）bad評価したユーザーが含まれています:
+          <% @bad_user_names.each do |name| %>
+          <%= "#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
     <hr class="featurette-divider">
 
     <div class="overflow-scroll" style="height: 100%">

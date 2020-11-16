@@ -45,7 +45,7 @@
           <div class="m-3">
             ユーザーを評価する
             <%# ユーザーいいね機能 %>
-            <% if GoodUser.find_by(user_id: @user.id) %>
+            <% if @good_user %>
               <div>
                 <%= link_to "goodを外す", user_good_users_path(@user.id), method: :delete %>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@
               </div>
             <% end %>
             <%# ユーザーbad機能 %>
-            <% if BadUser.find_by(user_id: @user.id) %>
+            <% if @bad_user %>
               <div>
                 <%= link_to "badを外す", user_bad_users_path(@user.id), method: :delete %>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

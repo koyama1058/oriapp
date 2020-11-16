@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_002253) do
+ActiveRecord::Schema.define(version: 2020_11_16_001056) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_11_11_002253) do
   end
 
   create_table "bad_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "bad_user_id"
+    t.integer "judge_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_bad_users_on_user_id"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 2020_11_11_002253) do
   end
 
   create_table "good_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "good_user_id"
+    t.integer "judge_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_good_users_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -124,10 +124,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_002253) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bad_users", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
-  add_foreign_key "good_users", "users"
   add_foreign_key "messages", "posts"
   add_foreign_key "messages", "users"
   add_foreign_key "post_tags", "posts"
