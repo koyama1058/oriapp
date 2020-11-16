@@ -1,7 +1,7 @@
 class PostsTag
 
   include ActiveModel::Model
-  attr_accessor :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :user_id, :name, :id, :create_at, :updated_at
+  attr_accessor :address, :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :user_id, :name, :id, :create_at, :updated_at
 
   with_options presence: true do
     validates :image
@@ -22,6 +22,8 @@ class PostsTag
       tag.save
       PostTag.create(post_id: post.id, tag_id: tag.id)
     end
+    binding.pry
+    Spot.create(address: address, post_id: post.id)
   end
 
   def update
