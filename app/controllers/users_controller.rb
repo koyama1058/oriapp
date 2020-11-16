@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     # ユーザーがいいねした投稿を取得
     @favorites = Favorite.where(user_id: current_user).order(id: :DESC)
     # ユーザーに対するgood数を取得
-    @goods = GoodUser.where(user_id: params[:id])
+    @goods = GoodUser.where(good_user_id: params[:id])
     # ユーザーに対するbad数を取得
-    @bads = BadUser.where(user_id: params[:id])
+    @bads = BadUser.where(bad_user_id: params[:id])
     # ユーザーが投稿したもの一覧
     @myposts = Post.where(user_id: current_user).order(id: :DESC)
 
