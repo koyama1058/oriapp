@@ -23,6 +23,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.spot
+      @latitude = @post.spot.latitude
+      @longitude = @post.spot.longitude
+      gon.lat = @latitude
+      gon.lng = @longitude
+    end
   end
 
   def edit
@@ -89,7 +95,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:posts_tag).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id)
+    params.require(:posts_tag).permit(:address, :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id)
   end
 
   def update_params

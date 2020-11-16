@@ -68,3 +68,7 @@ gem 'ransack'
 gem 'kaminari'
 gem "aws-sdk-s3", require: false
 gem 'font-awesome-rails'
+gem "gmaps4rails"
+gem "geocoder"
+gem "gon"
+gem "dotenv-rails"

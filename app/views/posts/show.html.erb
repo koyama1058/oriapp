@@ -32,9 +32,37 @@
             <li class="list-group-item p-3">都道府県：<%= @post.prefectures.name%></li>
             <li class="list-group-item p-3">場所：<%= @post.place%></li>
             <li class="list-group-item p-3">予算：<%= @post.budget%></li>
+            <% if @post.spot %>
+            <li class="list-group-item p-3" >住所：<%= @post.spot.address%></li>
+            <div id='map'></div>
+            <% end %>
           </ul>
         </div>
       <% end %>
+
+      <style>
+      #map{
+        height: 400px;
+      }
+      </style>
+
+      <script>
+        let map
+
+        function initMap(){
+          geocoder = new google.maps.Geocoder()
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: gon.lat, lng: gon.lng},
+            zoom: 18,
+          });
+
+          marker = new google.maps.Marker({
+            position:  {lat: 38.2472, lng: 140.356},
+            map: map
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd096CXaKjnnPzfvBhsFxEPdufLXCO2iE&callback=initMap" async defer></script>
       
       <% unless PostUser.where(post_id: @post.id,user_id: current_user.id) == [] %>
         <%= fa_icon("twitter") %>
