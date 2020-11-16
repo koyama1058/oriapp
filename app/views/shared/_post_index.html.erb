@@ -4,7 +4,11 @@
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm rounded">
           <div class="card" style="display: none">
-            <%= image_tag post.image, class:"card-img-top rounded", width:"100%", height:"210"%>
+            <% if post.image.present? %>
+              <%= image_tag post.image, class:"card-img-top rounded", width:"100%", height:"210"%>
+            <% else %>
+              <%= image_tag "image.png", class:"card-img-top mb-4" unless @user.image.attached? %>
+            <% end %>
             <div class="card-body text-center">
               <h4 class="card-title"><%=post.title %></h4>
               <p class="card-text"><%=post.description %></p>

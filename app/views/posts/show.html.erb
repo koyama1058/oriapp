@@ -8,8 +8,11 @@
       <%= form_with model: @post, class: 'registration-main contain p-4', local: true do |f| %>
 
         <div class="card" style="width: 100%;">
-          <%= image_tag @post.image, class:"card-img-top mb-4", alt:"..." %>
-
+          <% if @post.image.present? %>
+            <%= image_tag @post.image, class:"card-img-top mb-4", alt:"..." %>
+          <% else %>
+            <%= image_tag "image.png", class:"card-img-top mb-4" unless @user.image.attached? %>
+          <% end %>
           <% if @post.user_id == current_user.id %>
             <div class="d-flex justify-content-center">
               <%= link_to '削除', post_path(@post.id), method: :delete, class:'btn btn-success m-3 p-2' %>
