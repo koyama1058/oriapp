@@ -54,6 +54,19 @@ class PostsController < ApplicationController
     @message = Message.new
     @messages = @post.messages.includes(:user)
     @users = PostUser.where(post_id: @post)
+    # ユーザーがbad評価したユーザーがチャットに入っているか
+    post_users = PostUser.where(post_id: @post)
+    bad_user_ids = [] 
+    post_users.each do |post_user|
+      if bad_user = BadUser.find_by(bad_user_id: post_user.user_id, judge_user_id: current_user.id)
+        bad_user_ids << bad_user
+      end
+      @bad_user_names = []
+      bad_user_ids.each do |bad_user_name|
+        user = User.find(bad_user_name.bad_user_id)
+        @bad_user_names << user.nickname
+      end
+    end
   end
 
   def chat_destroy
