@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_001056) do
+ActiveRecord::Schema.define(version: 2020_11_16_024137) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -98,6 +98,16 @@ ActiveRecord::Schema.define(version: 2020_11_16_001056) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_spots_on_post_id"
+  end
+
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -133,4 +143,5 @@ ActiveRecord::Schema.define(version: 2020_11_16_001056) do
   add_foreign_key "post_users", "posts"
   add_foreign_key "post_users", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "spots", "posts"
 end
