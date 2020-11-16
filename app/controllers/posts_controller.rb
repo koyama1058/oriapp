@@ -23,6 +23,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.spot
+      @latitude = @post.spot.latitude
+      @longitude = @post.spot.longitude
+      gon.lat = @latitude
+      gon.lng = @longitude
+    end
   end
 
   def edit
