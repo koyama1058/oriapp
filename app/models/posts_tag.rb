@@ -22,7 +22,6 @@ class PostsTag
       tag.save
       PostTag.create(post_id: post.id, tag_id: tag.id)
     end
-    binding.pry
     Spot.create(address: address, post_id: post.id)
   end
 
