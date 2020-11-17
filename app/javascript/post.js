@@ -51,5 +51,3 @@ $(window).on('scroll', function (){
     }
   });
 });
-
-console.log("a")
