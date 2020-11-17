@@ -54,6 +54,8 @@ class PostsTag
       delete_tag = PostTag.find_by(post_id: post.id, tag_id: delete_post_tag_id.id)
       delete_tag.destroy
     end
+    spot = Spot.find(id)
+    spot.update(address: address)
   end
   
 end

@@ -99,7 +99,7 @@ class PostsController < ApplicationController
   end
 
   def update_params
-    params.require(:post).permit(:image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id, id: params[:id])
+    params.require(:post).permit(:address, :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id, id: params[:id])
   end
 
   # def search_post

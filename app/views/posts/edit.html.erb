@@ -93,6 +93,15 @@
             <%= f.text_field :place, autofocus: true, autocomplete: "place", class:"form-control", placeholder: "詳しい場所を記入してください"  %>
           </div>
         </div>
+
+         <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            住所
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :address, autofocus: true, value:"#{@post.spot.address}", autocomplete: "address", class:"form-control", placeholder: "住所を入力してください"  %>
+          </div>
+        </div>
         
         <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
