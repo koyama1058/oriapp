@@ -38,10 +38,9 @@
             <li class="list-group-item p-3" >住所：<%= @post.spot.address%></li>
             <li class="list-group-item p-3" >緯度：<%= @post.spot.latitude%></li>
             <li class="list-group-item p-3" >経度：<%= @post.spot.longitude%></li>
-            <% unless @post.spot.latitude == nil && @post.spot.longitude == nil %>
+            <%# <% unless @post.spot.latitude == nil && @post.spot.longitude == nil %> %>
             <div id='map'></div>
-
-            <% end %>
+            <%# <% end %> %>
           </ul>
         </div>
       <% end %>
