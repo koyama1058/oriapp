@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
   get 'posts/search'
+  get 'posts/tag_search'
 
   resources :posts do 
       member do
