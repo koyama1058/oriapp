@@ -35,9 +35,11 @@
             <li class="list-group-item p-3">都道府県：<%= @post.prefectures.name%></li>
             <li class="list-group-item p-3">場所：<%= @post.place%></li>
             <li class="list-group-item p-3">予算：<%= @post.budget%></li>
+            <% if @post.spot.present? %>
             <li class="list-group-item p-3" >住所：<%= @post.spot.address%></li>
             <% unless @post.spot.latitude == nil && @post.spot.longitude == nil %>
             <div id='map'></div>
+            <% end %>
             <% end %>
           </ul>
         </div>
