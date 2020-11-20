@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
   def show
-    binding.pry
+    @posts = PostTag.where(tag_id: params[:id])
   end
 
 end
