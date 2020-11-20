@@ -102,8 +102,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:address, :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :name).merge(user_id: current_user.id, id: params[:id])
   end
 
-  # def search_post
-  #   @p = Post.where(prefectures_id: params[:q][:prefectures_id])
-  # end 
-
 end

@@ -24,8 +24,8 @@
           <ul class="list-group list-group-flush text-left">
             <li class="list-group-item p-3">投稿者：<%=link_to "#{@post.user.nickname}",  user_path(@post.user.id) %></li>
             <li class="list-group-item p-3">タグ：
-              <% @post.tags.each do |post| %>
-                <%=link_to "#{post.name}", posts_tag_search_path, type="button", class:"btn btn-primary btn-sm rounded-pill"%>　
+              <% @post.tags.each do |tag| %>
+                <%= link_to "#{tag.name}", tag_path(tag.id)  %>
               <% end %>
             </li>
             <li class="list-group-item p-3">タイトル：<%= @post.title %></li>
