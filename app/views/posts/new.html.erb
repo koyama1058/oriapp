@@ -82,7 +82,7 @@
             <span class="btn btn-outline-danger btn-sm ml-2">必須</span>
           </div>
           <div class="col align-self-center mb-2">
-            <%= f.text_field :place, autofocus: true, autocomplete: "place", class:"form-control", placeholder: "詳しい場所を記入してください"  %>
+            <%= f.text_field :place, autofocus: true, autocomplete: "place", class:"form-control", placeholder: "なしの場合にはなしと記入してください"  %>
           </div>
         </div>
 
@@ -91,7 +91,7 @@
             住所
           </div>
           <div class="col align-self-center mb-2">
-            <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", placeholder: "住所を入力してください"  %>
+            <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", placeholder: "住所を入力すると詳細画面でgoogleマップが表示されます"  %>
           </div>
         </div>
         
