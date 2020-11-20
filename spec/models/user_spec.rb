@@ -43,6 +43,7 @@ require 'rails_helper'
 
       it 'emailが登録済みのものだと登録できない' do
         user = FactoryBot.create(:user)
+        @user.email = user.email
         @user.valid?
         expect(@user.errors.full_messages).to include("Email has already been taken")
       end
