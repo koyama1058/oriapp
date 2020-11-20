@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
+  get 'posts/search'
   resources :tags, only: [:show]
 
   resources :posts do 
