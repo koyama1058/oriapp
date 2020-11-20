@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :post do
     image           {"image.png"}
-    title           {"テスト"}
+    title           {Faker::Lorem.sentence}
     category_id     {3}
-    description     {"詳細テスト"}
-    day_time        {"1994.08.02"}
+    description     {Faker::Lorem.sentence}
+    day_time        {Faker::Lorem.sentence}
     prefectures_id  {3}
-    place           {"場所テスト"}
-    budget          {"予算テスト"}
+    place           {Faker::Lorem.sentence}
+    budget          {Faker::Lorem.sentence}
     association               :user
     after(:build) do |culture|
       culture.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'sample.jpg')), filename: 'sample.jpg', content_type: 'image/jpg')
