@@ -44,11 +44,15 @@
             タグ
           </div>
           <div class="col align-self-center mb-2">
+          <%if @post.tags.present? %>
             <% tags = [] %>
               <% @post.tags.each do |tag| %>
                 <% tags << tag.name %>
               <% end %>
             <%= f.text_field :name, value:"#{tags.join(" ")}", class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
+           <% else %>
+           <%= f.text_field :name, class:"input-tag", class:"form-control", placeholder: "アウトドア ハンドメイド等" %>
+           <% end %>
           </div>
         </div>
 
@@ -99,7 +103,11 @@
             住所
           </div>
           <div class="col align-self-center mb-2">
+            <% if @post.spot.present? %>
             <%= f.text_field :address, autofocus: true, value:"#{@post.spot.address}", autocomplete: "address", class:"form-control", placeholder: "住所を入力してください"  %>
+            <% else %>
+            <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", placeholder: "住所を入力してください"  %>
+            <% end %>
           </div>
         </div>
         
