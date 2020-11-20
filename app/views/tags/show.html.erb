@@ -1,0 +1,48 @@
+<%= render 'shared/header'%>
+
+<%# アイキャッチ画像 %>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=3000 data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "Collage_Fotor.jpg", class:"d-block w-100" %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>さあ、世界を広げよう</h3>
+        <%=link_to 'ログイン', new_user_session_path, class:"btn btn-lg btn-primary mb-4" %>
+        <p>  </p>
+      </div>
+    </div>
+  </div>
+
+<%# 提案内容一覧 %>
+  <div class="p-4 text-center">
+    <h1 class="text-success ">Waiting for sharing</h1>
+    <h3 class="pt-5">タグ："<%= @posts[0].tag.name %>"一覧</h3>
+  </div>
+
+<%# 検索投稿一覧 %>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post_tag|%>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm rounded">
+          <div class="card" style="display: none">
+            <% if post_tag.post.image.present? %>
+              <%= image_tag post_tag.post.image, class:"card-img-top rounded", width:"100%", height:"210"%>
+            <% else %>
+              <%= image_tag "image.png", class:"card-img-top mb-4" unless @user.image.attached? %>
+            <% end %>
+            <div class="card-body text-center">
+              <h4 class="card-title"><%=post_tag.post.title %></h4>
+              <p class="card-text"><%=post_tag.post.description %></p>
+              <%= link_to '詳細を表示する', post_path(post_tag.post_id), class:'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div> 
+
+<div class="text-center">
+<%= render 'shared/footer' %>
+</div>
