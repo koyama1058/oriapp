@@ -19,10 +19,10 @@ class User < ApplicationRecord
   belongs_to_active_hash :job
 
   with_options presence: true do
-  validates :nickname
+    validates :nickname
   end
 
   def already_favorited?(post)
-    self.favorites.exists?(post_id: post.id)
+    favorites.exists?(post_id: post.id)
   end
 end

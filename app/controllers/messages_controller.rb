@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def index
     @message = Message.new
     @post = Post.find(params[:post_id])
@@ -25,6 +24,7 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.require(:message).permit(:text, :image).merge(user_id: current_user.id)
   end

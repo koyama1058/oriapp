@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "GoodUsers", type: :request do
-
+RSpec.describe 'GoodUsers', type: :request do
 end

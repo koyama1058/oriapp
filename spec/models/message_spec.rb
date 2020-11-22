@@ -23,7 +23,7 @@ RSpec.describe Message, type: :model do
     end
 
     context 'チャット投稿がうまくいかない時' do
-      it "textとimageの両方が空だと投稿できない" do
+      it 'textとimageの両方が空だと投稿できない' do
         @message.image = nil
         @message.text = nil
         @message.valid?
@@ -32,12 +32,12 @@ RSpec.describe Message, type: :model do
       it 'postが紐付いていないと保存できないこと' do
         @message.post = nil
         @message.valid?
-        expect(@message.errors.full_messages).to include("Post must exist")
+        expect(@message.errors.full_messages).to include('Post must exist')
       end
       it 'userが紐付いていないと保存できないこと' do
         @message.user = nil
         @message.valid?
-        expect(@message.errors.full_messages).to include("User must exist")
+        expect(@message.errors.full_messages).to include('User must exist')
       end
     end
   end

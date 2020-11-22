@@ -1,5 +1,4 @@
 class Message < ApplicationRecord
-
   belongs_to :user
   belongs_to :post
   has_one_attached :image
@@ -8,6 +7,6 @@ class Message < ApplicationRecord
 
   def was_attached?
     # コントローラーのimageを参照している（selfをつけることで参照可能)
-    self.image.attached?
+    image.attached?
   end
 end
