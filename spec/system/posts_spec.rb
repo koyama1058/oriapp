@@ -179,9 +179,9 @@ RSpec.describe '投稿削除', type: :system do
       fill_in "user_password", with: @post.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq root_path
-      # 投稿1の詳細画面に遷移する
+      # 投稿2の詳細画面に遷移する
       visit post_path(@post2)
-      # 投稿1にの詳細画面「削除」ボタンがあることを確認する
+      # 投稿2にの詳細画面「削除」ボタンがないことを確認する
       expect(page).to have_no_content("削除")
     end
 
