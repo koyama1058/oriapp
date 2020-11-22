@@ -1,33 +1,33 @@
 require 'rails_helper'
 
-RSpec.describe "Favorites", type: :system do
+RSpec.describe 'Favorites', type: :system do
   before do
     @post = FactoryBot.create(:post)
   end
 
-  context "いいねできるとき" do
-    it "ログインしたユーザーはいいねできる" do
+  context 'いいねできるとき' do
+    it 'ログインしたユーザーはいいねできる' do
       # ログインする
       visit new_user_session_path
-      fill_in "user_email", with: @post.user.email
-      fill_in "user_password", with: @post.user.password
+      fill_in 'user_email', with: @post.user.email
+      fill_in 'user_password', with: @post.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq root_path
       # 投稿の詳細ページに遷移する
       visit post_path(@post)
       # 詳細ページにいいねボタンがあることを確認する
-      expect(page).to have_content("いいね")
+      expect(page).to have_content('いいね')
       # いいねボタンをクリックするとfavoliteテーブルのカラムが一つ増える
-      expect{
+      expect do
         click_link 'いいね'
-      }.to change { Favorite.count }.by(1)
+      end.to change { Favorite.count }.by(1)
       # 詳細ベージにいる
       expect(current_path).to eq post_path(@post)
       # いいねを外すボタンがあることを確認する
-      expect(page).to have_content("いいねを外す")
+      expect(page).to have_content('いいねを外す')
     end
   end
-      
+
   context 'いいねできないとき' do
     it 'ログインしていないといいねできない' do
       # トップページに遷移する
@@ -38,6 +38,4 @@ RSpec.describe "Favorites", type: :system do
       expect(current_path).to eq new_user_session_path
     end
   end
-      
-      
 end

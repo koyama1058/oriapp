@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "BadUsers", type: :request do
-
+RSpec.describe 'BadUsers', type: :request do
 end

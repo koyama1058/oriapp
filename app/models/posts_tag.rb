@@ -1,5 +1,4 @@
 class PostsTag
-
   include ActiveModel::Model
   attr_accessor :address, :image, :title, :category_id, :description, :day_time, :prefectures_id, :place, :budget, :user_id, :name, :id, :create_at, :updated_at
 
@@ -40,7 +39,7 @@ class PostsTag
       up_tag.update(name: tag)
       # postに紐づいているtagで保存されていないものがあればPostTagテーブルに保存
       post_tag = PostTag.find_by(post_id: post.id, tag_id: up_tag.id)
-      PostTag.create(post_id: post.id, tag_id: up_tag.id) if post_tag == nil
+      PostTag.create(post_id: post.id, tag_id: up_tag.id) if post_tag.nil?
     end
     # tagsとpostに紐づくtagの配列を比較してupdateの際に削除しているものがあればそれをPostTagテーブから削除
     post_tags = PostTag.where(post_id: post.id)
@@ -59,5 +58,4 @@ class PostsTag
       spot.update(address: address)
     end
   end
-  
 end

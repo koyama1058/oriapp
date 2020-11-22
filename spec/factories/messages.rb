@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :message do
-    image           {"image.png"}
-    text           {"チャットメッセージテスト"}
+    image { 'image.png' }
+    text { 'チャットメッセージテスト' }
     association               :user
     association               :post
     after(:build) do |culture|

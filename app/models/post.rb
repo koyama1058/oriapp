@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  
   belongs_to :user
   has_one_attached :image
   has_many :messages
@@ -9,7 +8,7 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
   has_one :spot, dependent: :destroy
-  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :prefectures
