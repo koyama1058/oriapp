@@ -7,7 +7,7 @@ class Message < ApplicationRecord
   validates :text, presence: true, unless: :was_attached?
 
   def was_attached?
-    コントローラーのimageを参照している（selfをつけることで参照可能)
+    # コントローラーのimageを参照している（selfをつけることで参照可能)
     self.image.attached?
   end
 end
