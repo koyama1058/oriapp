@@ -7,8 +7,8 @@
       <%= form_with model: @user, url: user_session_path, class: 'registration-main contain pt-5 pb-5', local: true do |f| %>
           <p>テストユーザーとしてログインできます</p>
           <p>⬇︎</p>
-          <%= f.hidden_field :email, value: 'a@a' %>
-          <%= f.hidden_field :password, value: '123456' %>
+          <%= f.hidden_field :email, value: 'sampletestuser@gmail.comcom' %>
+          <%= f.hidden_field :password, value: 'sample2020' %>
           <%= f.submit 'テストログイン', class: "btn btn-primary btn-lg" %>
         <% end %>
       <%= render "devise/shared/links" %>
