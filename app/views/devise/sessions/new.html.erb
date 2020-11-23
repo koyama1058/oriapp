@@ -8,7 +8,7 @@
         <h1 class="h3 m-3 font-weight-normal pt-4">ログイン情報入力</h1>
           <%=link_to  "新規登録へ", new_user_registration_path%>
 
-        <%= form_with model: @user, url: user_session_path, class: 'registration-main contain p-5', local: true do |f| %>
+        <%= form_with model: @user, url: user_session_path, class: 'registration-main contain pt-5 pr-5 pl-5', local: true do |f| %>
 
           <div class="input-group mb-3">
             <%= f.label :email, class:"input-group mb-3" %><br />
@@ -25,6 +25,15 @@
           </div>
 
         <% end %>
+
+        <%= form_with model: @user, url: user_session_path, class: 'registration-main contain pt-5', local: true do |f| %>
+          <p>テストユーザーとしてログインできます</p>
+          <p>⬇︎</p>
+          <%= f.hidden_field :email, value: 'sampletestuser@gmail.comcom' %>
+          <%= f.hidden_field :password, value: 'sample2020' %>
+          <%= f.submit 'テストログイン', class: "btn btn-primary btn-lg" %>
+        <% end %>
+
       </div>
       </div>
     </div>
