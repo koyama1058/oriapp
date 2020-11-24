@@ -1,9 +1,12 @@
 <%= render 'shared/header' %>
 
 <%# アイキャッチ画像 %>
-<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=10000 data-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-interval=44000 data-ride="carousel" data-pause="false">
   <div class="carousel-inner">
     <div class="carousel-item active">
+       <%= video_tag "oriapp movie.mp4", class:"d-block w-100", loop: true, autoplay: true, muted: true, :height =>'750'%> 
+    </div>
+    <div class="carousel-item">
       <%= image_tag "Collage_Fotor.jpg", class:"d-block w-100" %>
       <div class="carousel-caption d-none d-md-block">
         <h3>さあ、世界を広げよう</h3>
@@ -15,14 +18,7 @@
         <p>  </p>
       </div>
     </div>
-    <%# <div class="carousel-item">
-      <%= video_tag "movie.mov", class:"d-block w-100", loop: true, autoplay: true, muted: true%>
-      <%# <div class="carousel-caption d-none d-md-block">
-        <h3>さあ、世界を広げよう</h3>
-        <p>ログイン</p> %>
-        <%# <%=link_to 'ログイン', new_user_session_path %>
-      <%# </div>
-    </div> %>
+    
   </div>
   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
