@@ -56,13 +56,12 @@ http://13.231.34.42/
 
 ### 投稿機能
 <img src="https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif" width="640px">
-![投稿GIF](https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif)
 
 ログインしたユーザーは共有したい趣味を投稿したり投稿に参加することができます。
 
 
 ### 投稿参加機能
-![投稿参加GIF](https://user-images.githubusercontent.com/71957380/100165716-4b032400-2efe-11eb-93cd-9776bcdd2b2f.gif)
+<img src="https://user-images.githubusercontent.com/71957380/100165716-4b032400-2efe-11eb-93cd-9776bcdd2b2f.gif" width="640px">
 
 自分が投稿したものには編集や削除ができます。投稿の際に住所を入力するとgoogleマップのAPIを利用し、投稿の詳細ページで地図を確認することができます。
 また、投稿に参加することでチャットを行えるようになります。チャットのみで趣味を共有することもできます。
@@ -72,7 +71,7 @@ http://13.231.34.42/
 
 
 ### マイページ
-![マイページGIF](https://user-images.githubusercontent.com/71957380/100165744-5f472100-2efe-11eb-8de3-f4c88422652f.gif)
+<img src="https://user-images.githubusercontent.com/71957380/100165744-5f472100-2efe-11eb-8de3-f4c88422652f.gif" width="640px">
 
 マイページではユーザー情報の編集や自身が投稿したもの、いいねをした投稿、参加した投稿の一覧をみることができます。この表示はマイページにのみ実装しました。
 自分以外のユーザーの詳細ページにはそのユーザーの投稿したもの、いいねした投稿、参加した投稿を表示しないことでユーザーの安全性を高めました。
@@ -80,14 +79,14 @@ http://13.231.34.42/
 
 
 ### ツイート共有機能
-![ツイート共有GIF](https://user-images.githubusercontent.com/71957380/100165750-62daa800-2efe-11eb-929d-cce193bb0809.gif)
+<img src="https://user-images.githubusercontent.com/71957380/100165750-62daa800-2efe-11eb-929d-cce193bb0809.gif" width="640px">
 
 参加した投稿にはツイートの共有ボタンを表示し、ツイートで拡散できるようにしました。投稿への参加を呼びかける工夫としてアクティブユーザーがもっとも多いツイッターを利用しました。
 サイト認知度の低さが原因の”共有ができない”とうい状況を可能な限り低くするために実装しました。
 
 
 ### タグ検索機能
-![タグ検索GIF](https://user-images.githubusercontent.com/71957380/100165775-6f5f0080-2efe-11eb-85be-1e8d051f6b0f.gif)
+<img src="https://user-images.githubusercontent.com/71957380/100165775-6f5f0080-2efe-11eb-85be-1e8d051f6b0f.gif" width="640px">
 
 タグを複数付けられることでユーザーのあらゆる趣味に対応しました。また、タグをクリックすることで同じタグを持った投稿一覧を検索できるようにしています。
 例えば”ステイホーム”のタグをクリックすると同じ”ステイホーム”のタグを持った投稿が表示されます。どのような趣味を見つけたいをタグ機能をつけることで実装しました。
