@@ -1,98 +1,86 @@
-# テーブル設計
+# HobbyShereApp README
 
-## users テーブル
-
-| colum          | type    | option      |
-| -------------- | ------- | ----------- |
-| email          | string  | null: false |
-| password       | string  | null: false |
-| nickname       | string  | null: false |
-| birthday       | date    |             |
-| gender_id      | integer |             |
-| introduction   | text    |             |
-| job            | string  |             |
-| hobby          | text    |             |
-| prefectures_id | integer |             |
+## 概要
+趣味を知りたい人と趣味を共有したい人をマッチングするためのアプリケーションです。
 
 
-### Association
-- has_many :posts
-- has_one_attached :image
-- has_many :rooms, through: :room_users
-- has_many :room_users
-- has_many :messages
-
-### その他
-gender_id :active_hash
-birthday :date_select
-gem :devise
-- gem: 'mini_magick' でimageを実装
+## アプリURL
+http://13.231.34.42/
 
 
-
-## posts テーブル
-
-| colum          | type       | option                         |
-| -------------- | ---------- | ------------------------------ |
-| title          | string     | null: false                    |
-| category_id    | integer    | null: false                    |
-| description    | text       | null: false                    |
-| day_time       | date       |                                |
-| prefectures_id | integer    |                                |
-| place          | text       |                                |
-| budget         | text       |                                |
-| user           | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- has_one :room
-
-### その他
-prefectures_id :active_hash
-category_id :active_hash
-- gem: 'mini_magick' でimageを実装
-
-カテゴリーはタグで付けたい
+## テスト用アカウント
+ユーザーの新規登録画面及びログイン画面にテストユーザーログインボタンがあります。そちらからログインできます。
 
 
-
-## rooms テーブル
-
-| colum | type       | option                         |
-| ----- | ---------- | ------------------------------ |
-| post  | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :post
-- has_many :users, through: :room_users
-- has_many :room_users
-- has_many :messages
+## 利用方法
+サイトのトップページに主な使い方は動画で掲載しております。
 
 
-## room_users テーブル
-
-| colum   | type       | option                         |
-| ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| room_id | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :room
-- belongs_to :user
+## 目指した課題解決
+無趣味で毎日の楽しみがあまりない（昔の私）に向けていろいろな人の趣味に触れ、自分自身でもやってみることで生活に少し彩を加えられるようなアプリを目指しました。
+まずは参加せずとも投稿一覧を見て趣味にはどのようなものがあるのか？何が楽しいのか？などを知ることができます。
+また少し勇気がでたら実際に投稿に参加して、趣味を共有することで新しいことへの楽しみや人との繋がりなど世界が広がっていきます。
+投稿する人は自分の趣味に対して前向きに聞いてくれたり、積極的に参加してくれる人がいればその趣味ももっと楽しいものになるのではないでしょうか？
+趣味を知って欲しい人・知りたい人双方が楽しめるアプリを目指しました。
 
 
-## messages テーブル
+## 洗い出した要件
 
-| colum | type       | option                         |
-| ----- | ---------- | ------------------------------ |
-| text  | text       | null: false                    |
-| user  | references | null: false, foreign_key: true |
-| room  | references | null: false, foreign_key: true |
+### ユーザー関連
+- ユーザー登録機能（画像投稿付き）
+- ユーザー情報の編集機能
+- ログイン機能
+- ユーザー詳細表示機能
+- マイページ機能
+- ユーザー相互のgood・bad評価機能
+
+### 投稿関連
+- 新規投稿機能（画像投稿付き）
+- 投稿詳細機能
+- 投稿編集機能
+- 投稿削除機能
+- 投稿に対して複数タグ付け機能
+- 投稿に住所を入力することでgoogleマップを表示する機能
+- 投稿検索機能
+- 投稿に紐づくチャット（テキスト・画像）機能（投稿への参加）
+- 投稿への参加を取りやめる機能
+- 投稿をツイッターで共有する機能
+- 投稿に対するお気に入り機能
+
+### その他機能
+- ページネーション機能
 
 
-### Association
-- belongs_to :room
-- belongs_to :user
+## 実装した機能についてのGIFと説明
 
-### その他
-- gem: 'mini_magick' でimageを実装
+### 投稿機能
+![投稿GIF](https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif)
+ログインしたユーザーは共有したい趣味を投稿したり投稿に参加することができます。
+
+### 投稿参加に関する
+![投稿参加GIF](https://user-images.githubusercontent.com/71957380/100165716-4b032400-2efe-11eb-93cd-9776bcdd2b2f.gif)
+自分が投稿したものには編集や削除ができます。投稿の際に住所を入力するとgoogleマップのAPIを利用し、投稿の詳細ページで地図を確認することができます。
+また、投稿に参加することでチャットを行えるようになります。チャットのみで趣味を共有することもできます。
+実際に会って趣味を共有するための打ち合わせの場として利用することができます。
+また、ユーザー相互の評価機能もあり、bad評価をしたユーザーが同じ投稿に参加している場合にはチャット上部にアラートを表示しております。
+この機能により、ユーザーの安全性を高めました。
+
+### マイページに関する
+![マイページGIF](https://user-images.githubusercontent.com/71957380/100165744-5f472100-2efe-11eb-8de3-f4c88422652f.gif)
+マイページではユーザー情報の編集や自身が投稿したもの、いいねをした投稿、参加した投稿の一覧をみることができます。この表示はマイページにのみ実装しました。
+自分以外のユーザーの詳細ページにはそのユーザーの投稿したもの、いいねした投稿、参加した投稿を表示しないことでユーザーの安全性を高めました。
+マイページにユーザー自身が興味を持っている投稿や参加している投稿をまとめることでユーザビリティを高めました。
+
+### ツイート共有
+![ツイート共有GIF](https://user-images.githubusercontent.com/71957380/100165750-62daa800-2efe-11eb-929d-cce193bb0809.gif)
+参加した投稿にはツイートの共有ボタンを表示し、ツイートで拡散できるようにしました。投稿への参加を呼びかける工夫としてアクティブユーザーがもっとも多いツイッターを利用しました。
+サイト認知度の低さが原因の”共有ができない”とうい状況を可能な限り低くするために実装しました。
+
+### タグ検索
+![タグ検索GIF](https://user-images.githubusercontent.com/71957380/100165775-6f5f0080-2efe-11eb-85be-1e8d051f6b0f.gif)
+タグを複数付けられることでユーザーのあらゆる趣味に対応しました。また、タグをクリックすることで同じタグを持った投稿一覧を検索できるようにしています。
+例えば”ステイホーム”のタグをクリックすると同じ”ステイホーム”のタグを持った投稿が表示されます。どのような趣味を見つけたいをタグ機能をつけることで実装しました。
+
+
+## データベース設計
+![スクリーンショット 2020-11-25 8 43 40](https://user-images.githubusercontent.com/71957380/100164102-83a0fe80-2efa-11eb-9e91-a85f68f815d6.png)
