@@ -55,7 +55,7 @@ http://13.231.34.42/
 主な機能に関するGIFを掲載します。下記以外にも様々な機能がありますのでぜひ使って頂ければ幸いです。
 
 ### 投稿機能
-<img src="https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif" width="320px">
+<img src="https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif" width="640px">
 ![投稿GIF](https://user-images.githubusercontent.com/71957380/100165669-3030af80-2efe-11eb-9e49-f64d39e6ce7e.gif)
 
 ログインしたユーザーは共有したい趣味を投稿したり投稿に参加することができます。
