@@ -1,0 +1,9 @@
+test:
+  adapter: mysql2
+  charset: utf8
+  collation: utf8_bin
+  encoding: utf8mb4
+  database: otenki_test 
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
