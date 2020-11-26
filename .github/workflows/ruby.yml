@@ -11,8 +11,8 @@ jobs:
 #GitHub Actionsでサポートしているrubyのversionは2.6系以降です
     steps:
     - uses: actions/checkout@v1
-    - name: Setup Ruby version
-      uses: actions/setup-ruby@master
+    - name: Setup Ruby version 2.6
+      uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.5
 
