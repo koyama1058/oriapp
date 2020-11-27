@@ -12,7 +12,7 @@ RSpec.describe 'Posts', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('新規投稿')
@@ -64,7 +64,7 @@ RSpec.describe '投稿編集', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # 投稿1の詳細画面に遷移する
       visit post_path(@post)
@@ -120,7 +120,7 @@ RSpec.describe '投稿編集', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # 投稿2の詳細画面に遷移する
       visit post_path(@post2)
@@ -151,7 +151,7 @@ RSpec.describe '投稿削除', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # 投稿1の詳細画面に遷移する
       visit post_path(@post)
@@ -174,7 +174,7 @@ RSpec.describe '投稿削除', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # 投稿2の詳細画面に遷移する
       visit post_path(@post2)
