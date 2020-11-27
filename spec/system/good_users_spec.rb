@@ -12,7 +12,7 @@ RSpec.describe 'GoodUsers', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # ユーザー2のが投稿した投稿詳細ページに遷移する
       visit post_path(@post2)
@@ -43,7 +43,7 @@ RSpec.describe 'GoodUsers', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: @post.user.email
       fill_in 'user_password', with: @post.user.password
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       expect(current_path).to eq root_path
       # マイページに遷移する
       visit user_path(@post.user)

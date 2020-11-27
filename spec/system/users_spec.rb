@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :system do
       fill_in 'user_password_confirmation', with: @user.password_confirmation
       # 新規登録を押すとユーザーモデルのカウントが1上がる
       expect  do
-        find('input[name="commit"]').click
+        find('input[value="新規登録"]').click
       end.to change { User.count }.by(1)
       # トップページへ遷移する
       expect(current_path).to eq root_path
@@ -47,7 +47,7 @@ RSpec.describe 'Users', type: :system do
       fill_in 'user_password_confirmation', with: ''
       # 新規登録を押してもユーザーモデルのカウントは上がらない
       expect  do
-        find('input[name="commit"]').click
+        find('input[value="新規登録"]').click
       end.to change { User.count }.by(0)
       # 新規登録ページへ戻される
       expect(current_path).to eq '/users'
@@ -72,7 +72,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       # ログインボタンを押す
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       # トップページへ遷移したことを確認する
       expect(current_path).to eq root_path
       # ログアウトボタンが表示されている
@@ -95,7 +95,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'user_email', with: ''
       fill_in 'user_password', with: ''
       # ログインボタンを押す
-      find('input[name="commit"]').click
+      find('input[value="ログイン"]').click
       # ログインページへ戻されることを確認する
       expect(current_path).to eq new_user_session_path
     end
