@@ -9,7 +9,7 @@ http://13.231.34.42/
 
 
 ## 使用技術
-ruby / rails / HTML / CSS / Bootstrap / javascript / jquery / git / github / AWS / docker
+ruby / rails / HTML / CSS / Bootstrap / javascript / jquery / git / github / AWS 
 
 
 ## テスト用アカウント
