@@ -33,15 +33,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    redirect_to root_path if current_user.id != @post.user.id
   end
 
   def update
     @post = PostsTag.new(update_params)
-    if @post.update
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
+    @post.update
+    redirect_to root_path
   end
 
   def destroy
