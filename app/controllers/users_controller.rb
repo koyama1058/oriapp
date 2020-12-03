@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     @bads = BadUser.where(bad_user_id: params[:id])
     # ユーザーが投稿したもの一覧
     @myposts = Post.where(user_id: current_user).order(id: :DESC)
-
+    # good評価していれば取得
     @good_user = GoodUser.find_by(good_user_id: params[:id], judge_user_id: current_user.id)
-
+    # bad評価していれば取得
     @bad_user = BadUser.find_by(bad_user_id: params[:id], judge_user_id: current_user.id)
   end
 

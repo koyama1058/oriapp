@@ -8,10 +8,7 @@ class BadUsersController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @bad_user = BadUser.find_by(bad_user_id: params[:user_id], judge_user_id: current_user.id)
-    if @bad_user.destroy
-      redirect_to  user_path(@user)
-    else
-      redirect_to  user_path(@user)
-    end
+    @bad_user.destroy
+    redirect_to  user_path(@user)
   end
 end
