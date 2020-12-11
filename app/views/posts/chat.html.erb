@@ -26,7 +26,7 @@
       <% end %>
       <%= link_to '参加をやめる', chat_destroy_post_path, class:'m-3 p-2 btn btn-primary'%>
       <%= fa_icon("twitter") %>
-      <%= link_to "ツイートで投稿を共有する",  "https://twitter.com/intent/tweet?text=#{@post.title}%20!!%0aみんなも参加是非参加して下さい！！%0ahttps://hobbyapp0828.herokuapp.com/posts/#{@post.id}", target: '_blank' %>
+      <%= link_to "ツイートで投稿を共有する",  "https://twitter.com/intent/tweet?text=#{@post.title}%20!!%0aみんなも参加是非参加して下さい！！%0ahttp://ec2-13-231-34-42.ap-northeast-1.compute.amazonaws.com/posts/#{@post.id}", target: '_blank' %>
     </div>
 
       <% unless @bad_user_names == [] %>
